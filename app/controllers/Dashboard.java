@@ -11,7 +11,6 @@ public class Dashboard extends Controller
   public static void index() {
     Logger.info("Rendering Dashboard");
     List<Station> stations = Station.findAll();
-    Station station = stations.get(0);
-    render ("dashboard.html", station);
+    render ("dashboard.html", stations);
   }
 }
