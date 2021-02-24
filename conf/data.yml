@@ -1,0 +1,15 @@
+Reading(r1):
+  code: 800
+  temperature: 0.5
+  windSpeed: 3.5
+
+Reading(r2):
+  code: 600
+  temperature: 6.0
+  windSpeed: 2
+
+Station(s1):
+  name: Tramore
+  readings:
+    - r1
+    - r2
