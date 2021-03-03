@@ -1,6 +1,8 @@
 package models;
 
 import play.db.jpa.Model;
+import utils.Conversion;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -26,5 +28,9 @@ public class Station extends Model
   public Station(String name)
   {
     this.name = name;
+  }
+
+  public String weatherIcon() {
+    return Conversion.weatherIcon(this.code);
   }
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Conversion {
   static Map<Integer, String> weatherCodes = new HashMap<>();
-
+  static Map<Integer, String> weatherCodeIcons = new HashMap<>();
   static {
     weatherCodes.put(100, "Clear");
     weatherCodes.put(200, "Partial Clouds");
@@ -15,6 +15,19 @@ public class Conversion {
     weatherCodes.put(600, "Rain");
     weatherCodes.put(700, "Snow");
     weatherCodes.put(800, "Thunder");
+
+    weatherCodeIcons.put(100, "sun");
+    weatherCodeIcons.put(200, "cloud sun");
+    weatherCodeIcons.put(300, "cloud");
+    weatherCodeIcons.put(400, "cloud sun rain");
+    weatherCodeIcons.put(500, "cloud showers heavy");
+    weatherCodeIcons.put(600, "cloud rain");
+    weatherCodeIcons.put(700, "snowflake");
+    weatherCodeIcons.put(800, "bolt");
+  }
+
+  public static String weatherIcon(int code) {
+    return weatherCodeIcons.get(code);
   }
 
   public static String currentWeather(int code) {
