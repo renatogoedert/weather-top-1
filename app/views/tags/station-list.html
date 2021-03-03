@@ -1,5 +1,10 @@
 #{list items:_stations, as:'station'}
   <section class="ui stacked segment">
-    #{station station:station /}
+    <h2 class="ui header">
+      ${station.name}
+    </h2>
+    <a href="/stations/${station.id}" class="ui icon button">
+      <i class="icon folder open"></i>
+    </a>
   </section>
 #{/list}
