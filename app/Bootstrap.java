@@ -1,4 +1,5 @@
 
+import models.Station;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
@@ -9,7 +10,9 @@ import java.util.List;
 public class Bootstrap extends Job {
   public void doJob() {
     {
-      Fixtures.loadModels("data.yml");
+      if (Station.count() == 0) {
+        Fixtures.loadModels("data.yml");
+      }
     }
   }
 }
