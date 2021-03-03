@@ -17,6 +17,8 @@ public class Station extends Model
   public double tempC, tempF;
   public int windBft;
   public int pressure;
+  public double windChill;
+  public String windCompass;
 
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
