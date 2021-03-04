@@ -6,6 +6,7 @@ import play.Logger;
 import play.mvc.Controller;
 import utils.Analytics;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Dashboard extends Controller
@@ -14,6 +15,7 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.stations;
+    Collections.sort(stations, (a, b) -> a.name.compareToIgnoreCase(b.name));
     render ("dashboard.html", stations);
   }
 
