@@ -13,6 +13,8 @@ import java.util.List;
 public class Station extends Model
 {
   public String name;
+  public double lat;
+  public double lng;
 
   public int code;
   public String weather;
@@ -28,9 +30,11 @@ public class Station extends Model
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
 
-  public Station(String name)
+  public Station(String name, double lat, double lng)
   {
     this.name = name;
+    this.lat = lat;
+    this.lng = lng;
   }
 
   public String weatherIcon() {
