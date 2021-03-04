@@ -13,6 +13,7 @@ public class Reading extends Model
   public double windSpeed;
   public int pressure;
   public int windDirection;
+  public Date date;
 
   public Reading(int code, double temperature, double windSpeed, int pressure, int windDirection)
   {
@@ -21,5 +22,6 @@ public class Reading extends Model
     this.windSpeed = windSpeed;
     this.pressure = pressure;
     this.windDirection = windDirection;
+    this.date = new Date();
   }
 }
