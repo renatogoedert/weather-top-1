@@ -19,7 +19,9 @@ public class Station extends Model
   public double tempC, tempF;
   public double maxTemp, minTemp;
   public int windBft;
+  public double maxWind, minWind;
   public int pressure;
+  public double maxPressure, minPressure;
   public double windChill;
   public String windCompass;
 

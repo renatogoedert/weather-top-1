@@ -16,7 +16,11 @@ public class Analytics {
       station.maxTemp = Analytics.maxTemp(station.readings);
       station.minTemp = Analytics.minTemp(station.readings);
       station.windBft = Conversion.beafourt(lastReading.windSpeed);
+      station.maxWind = Analytics.maxWind(station.readings);
+      station.minWind = Analytics.minWind(station.readings);
       station.pressure = lastReading.pressure;
+      station.maxPressure = Analytics.maxPressure(station.readings);
+      station.minPressure = Analytics.minPressure(station.readings);
       String str = String.format("%1.2f", Analytics.windChill(lastReading.temperature, lastReading.windSpeed));
       station.windChill = Double.valueOf(str);
       station.windCompass = Conversion.degreesToCompass(lastReading.windDirection);
@@ -58,4 +62,29 @@ public class Analytics {
     for (int i=0; i<readings.size(); i++) values[i] = readings.get(i).temperature;
     return min(values);
   }
+
+  public static double maxWind(List<Reading> readings) {
+    double values[] = new double[readings.size()];
+    for (int i=0; i<readings.size(); i++) values[i] = readings.get(i).windSpeed;
+    return max(values);
+  }
+
+  public static double minWind(List<Reading> readings) {
+    double values[] = new double[readings.size()];
+    for (int i=0; i<readings.size(); i++) values[i] = readings.get(i).windSpeed;
+    return min(values);
+  }
+
+  public static double maxPressure(List<Reading> readings) {
+    double values[] = new double[readings.size()];
+    for (int i=0; i<readings.size(); i++) values[i] = readings.get(i).pressure;
+    return max(values);
+  }
+
+  public static double minPressure(List<Reading> readings) {
+    double values[] = new double[readings.size()];
+    for (int i=0; i<readings.size(); i++) values[i] = readings.get(i).pressure;
+    return min(values);
+  }
+
 }
