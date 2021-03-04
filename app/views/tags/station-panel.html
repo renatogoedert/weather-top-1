@@ -6,7 +6,8 @@
                                valueC:_station.weather /}
 
   #{card title:"Temp",         icon:"temperature low", colour:"blue",
-                               valueA:_station.tempC + " C",    valueB:_station.tempF + " F" /}
+                               valueA:_station.tempC + " C",    valueB:_station.tempF + " F",
+                               valueC:"Max: " + _station.maxTemp, valueD:"Min: " + _station.minTemp /}
 
   #{card title:"Wind",         icon:"wind", colour:"green",
                                valueA:_station.windBft+" bft", valueB:_station.windCompass,
