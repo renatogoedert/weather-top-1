@@ -14,9 +14,11 @@ POST   /register                                Accounts.register
 GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
 POST    /dashboard/addstation                   Dashboard.addStation
+GET     /dashboard/deletestation/{id}           Dashboard.deleteStation
 
 GET     /stations/{id}                          StationCtrl.index
 POST    /stations/{id}/addreading               StationCtrl.addReading
+GET     /stations/{stationid}/deletereading/{id} StationCtrl.deleteReading
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
