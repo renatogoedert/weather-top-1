@@ -11,9 +11,11 @@
 
   #{card title:"Wind",         icon:"wind", colour:"green",
                                valueA:_station.windBft+" bft", valueB:_station.windCompass,
-                               valueC:"Feels like " + _station.windChill /}
+                               valueC:"Feels like " + _station.windChill,
+                               valueD:"Max: " + _station.maxWind, valueE:"Min: " + _station.minWind /}
 
   #{card title:"Pressure",     icon:"centos", colour:"orange",
-                               valueA:_station.pressure + " hpa" /}
+                               valueA:_station.pressure + " hpa",
+                               valueC:"Max: " + _station.maxPressure, valueD:"Min: " + _station.minPressure /}
 
 </div>
