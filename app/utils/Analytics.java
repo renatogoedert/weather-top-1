@@ -11,19 +11,25 @@ public class Analytics {
       Reading lastReading = station.readings.get(station.readings.size() - 1);
       station.code = lastReading.code;
       station.weather = Conversion.currentWeather(lastReading.code);
+
       station.tempC = lastReading.temperature;
       station.tempF = Conversion.tempF(lastReading.temperature);
       station.maxTemp = Analytics.maxTemp(station.readings);
       station.minTemp = Analytics.minTemp(station.readings);
+      station.tempTrend = Analytics.tempTrend(station.readings);
+
       station.windBft = Conversion.beafourt(lastReading.windSpeed);
       station.maxWind = Analytics.maxWind(station.readings);
       station.minWind = Analytics.minWind(station.readings);
-      station.pressure = lastReading.pressure;
-      station.maxPressure = Analytics.maxPressure(station.readings);
-      station.minPressure = Analytics.minPressure(station.readings);
+      station.windTrend = Analytics.windTrend(station.readings);
       String str = String.format("%1.2f", Analytics.windChill(lastReading.temperature, lastReading.windSpeed));
       station.windChill = Double.valueOf(str);
       station.windCompass = Conversion.degreesToCompass(lastReading.windDirection);
+
+      station.pressure = lastReading.pressure;
+      station.maxPressure = Analytics.maxPressure(station.readings);
+      station.minPressure = Analytics.minPressure(station.readings);
+      station.pressureTrend = Analytics.pressureTrend(station.readings);
     }
   }
 
@@ -87,4 +93,42 @@ public class Analytics {
     return min(values);
   }
 
+  public static int tempTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      double values[] = {readings.get(readings.size()-3).temperature, readings.get(readings.size()-2).temperature, readings.get(readings.size()-1).temperature};
+      trend = calcTrend(values);
+    }
+    return trend;
+  }
+
+  public static int windTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      double values[] = {readings.get(readings.size()-3).windSpeed, readings.get(readings.size()-2).windSpeed, readings.get(readings.size()-1).windSpeed};
+      trend = calcTrend(values);
+    }
+    return trend;
+  }
+
+  public static int pressureTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      double values[] = {readings.get(readings.size()-3).pressure, readings.get(readings.size()-2).pressure, readings.get(readings.size()-1).pressure};
+      trend = calcTrend(values);
+    }
+    return trend;
+  }
+
+  public static int calcTrend(double values[]) {
+    int trend = 0;
+    if (values.length > 2) {
+      if (( values[2] > values[1] ) && (values[1] > values[0])) {
+        trend = 1;
+      } else if (( values[2] < values[1] ) && (values[1] < values[0])) {
+        trend = -1;
+      }
+    }
+    return trend;
+  }
 }
