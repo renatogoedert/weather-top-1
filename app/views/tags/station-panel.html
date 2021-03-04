@@ -1,6 +1,7 @@
 <div class="ui five doubling inverted cards">
 
-  #{card title:_station.name,  icon:"marker", colour:"violet" /}
+  #{card title:_station.name,  icon:"marker", colour:"violet",
+                               valueC:"Lat: " + _station.lat, valueD:"Lng: " + _station.lng /}
 
   #{card title:"Weather",      icon:_station.weatherIcon(), colour:"red",
                                valueC:_station.weather /}
