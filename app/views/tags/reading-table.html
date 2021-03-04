@@ -4,7 +4,7 @@
   </thead>
   <tbody>
     #{list items:_station.readings, as:'reading'}
-      #{reading-row reading:reading /}
+      #{reading-row reading:reading, station:_station /}
     #{/list}
   </tbody>
 </table>
