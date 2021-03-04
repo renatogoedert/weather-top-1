@@ -1,8 +1,7 @@
 #{list items:_stations, as:'station'}
   <section class="ui stacked segment">
-    <h2 class="ui header">
-      ${station.name}
-    </h2>
+    #{station-panel station:station /}
+    <div class="ui divider"></div>
     <a href="/stations/${station.id}" class="ui icon button">
       <i class="icon folder open"></i>
     </a>
