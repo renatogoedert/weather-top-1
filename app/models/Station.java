@@ -17,6 +17,7 @@ public class Station extends Model
   public int code;
   public String weather;
   public double tempC, tempF;
+  public double maxTemp, minTemp;
   public int windBft;
   public int pressure;
   public double windChill;
