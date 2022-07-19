@@ -2,4 +2,4 @@
 
 This is a sample starter project for this course:
 
-- [Web Development](https://tutors-design.netlify.com/course/wit-hdip-comp-sci-2020-web-development.netlify.com)
+- [Web Development](https://reader.tutors.dev/#/course/wit-hdip-comp-sci-2022-web-development.netlify.app)
